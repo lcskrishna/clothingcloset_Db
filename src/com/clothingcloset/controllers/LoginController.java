@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.clothingcloset.api.Login;
 import com.clothingcloset.models.Person;
+import com.clothingcloset.models.UserLogin;
 
 @Controller
 @RequestMapping("/login")
@@ -39,4 +40,20 @@ public class LoginController {
 		return "result";
 		
 	}
+	
+	@RequestMapping(value="/userLogin",method = RequestMethod.POST)
+	public String validateUser(@ModelAttribute("SpringWeb") UserLogin userLogin){
+		boolean isValidUser = login.validateUser(userLogin);
+		if(isValidUser){
+			System.out.println("Valid User");
+		}else{
+			System.out.println("In valid User");
+		}
+		
+		return "decision";
+		
+	}
+	
+	
+	
 }

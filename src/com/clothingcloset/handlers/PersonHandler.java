@@ -7,7 +7,7 @@ import java.sql.Statement;
 import com.clothingcloset.databaseconnections.ConnectionUtil;
 import com.clothingcloset.models.Person;
 
-public class LoginHandler {
+public class PersonHandler {
 
 	private static ConnectionUtil connectionUtil = new ConnectionUtil();
 
