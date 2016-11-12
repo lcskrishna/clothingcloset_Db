@@ -1,4 +1,12 @@
+/**
+ * 
+ */
 package com.clothingcloset.controllers;
+
+/**
+ * @author Chaitanya Sri Krishna Lolla.
+ *
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.clothingcloset.api.Login;
+import com.clothingcloset.models.PBLStaff;
 import com.clothingcloset.models.Person;
 import com.clothingcloset.models.UserLogin;
 
@@ -41,9 +50,32 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value="/userLogin",method = RequestMethod.POST)
+	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
+	   public ModelAndView userLogin() {
+	      return new ModelAndView("userLoginPage", "command", new UserLogin());
+	   }
+	
+	@RequestMapping(value="/userLoginPage",method = RequestMethod.POST)
 	public String validateUser(@ModelAttribute("SpringWeb") UserLogin userLogin){
 		boolean isValidUser = login.validateUser(userLogin);
+		if(isValidUser){
+			System.out.println("Valid User");
+		}else{
+			System.out.println("In valid User");
+		}
+		
+		return "decision";
+		
+	}
+	
+	@RequestMapping(value = "/pblStaffLogin", method = RequestMethod.GET)
+	public ModelAndView pblStaffLogin(){
+		return new ModelAndView("pblStaffLoginPage","command", new PBLStaff());
+	}
+	
+	@RequestMapping(value="/userLoginPage",method = RequestMethod.POST)
+	public String validatePBLStaffMember(@ModelAttribute("SpringWeb") PBLStaff pblStaff){
+		boolean isValidUser = login.validatePBLStaff(pblStaff);
 		if(isValidUser){
 			System.out.println("Valid User");
 		}else{

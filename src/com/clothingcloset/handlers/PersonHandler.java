@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 import com.clothingcloset.databaseconnections.ConnectionUtil;
 import com.clothingcloset.models.Person;
+import com.mysql.jdbc.ResultSet;
 
 public class PersonHandler {
 
@@ -27,9 +28,27 @@ public class PersonHandler {
 					+ person.getFirstName() + "','" + person.getLastName() + "','" + person.getGender() + "',"
 					+ person.getMobileNumber() + ",'" + person.getStreet() + "','" + person.getCity() + "','"
 					+ person.getState() + "'," + person.getPincode() + ");";
-
+			
 			System.out.println("SQL Query is : " + sql);
 			stmt.executeUpdate(sql);
+			
+			String sql1= "SELECT ID FROM PERSON_TABLE WHERE FIRST_NAME = '"+person.getFirstName()+"' AND LAST_NAME= '"+person.getLastName()+"';";
+			System.out.println(sql1);
+			
+			ResultSet resultSet = (ResultSet) stmt.executeQuery(sql1);
+			int id = 0;
+			while(resultSet.next()){
+				id = resultSet.getInt("ID");
+				
+			}
+			
+			String sql2 = "INSERT INTO USER_TABLE (EMAIL,PASSWORD,ROLE,SUBSCRIPTION,ID) VALUES ('"
+					+person.getEmail()+"','"+person.getPassword()+"','"+person.getRole()+"','"+person.getSubscription()
+					+"',"+id+");";
+			
+			System.out.println("SQL Query is : "+sql2);
+			stmt.executeUpdate(sql2);
+			
 			isUserRegistered = true;
 		} catch (Exception e) {
 			e.printStackTrace();

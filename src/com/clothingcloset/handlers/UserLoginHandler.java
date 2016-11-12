@@ -1,6 +1,7 @@
 package com.clothingcloset.handlers;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -57,15 +58,15 @@ public class UserLoginHandler {
 			conn = (Connection) connectionUtil.connectToDatabase();
 			stmt = conn.createStatement();
 
-			String sql = "SELECT * FROM USER_TABLE WHERE EMAIL ="+userLogin.getEmail()
-			+"AND PASSWORD="+userLogin.getPassword();
+			String sql = "SELECT ID FROM USER_TABLE WHERE EMAIL ='"+userLogin.getEmail()
+			+"'AND PASSWORD='"+userLogin.getPassword()+"';";
 
 			System.out.println("SQL Query is : " + sql);
-			int resultSet = stmt.executeUpdate(sql);
-			if(resultSet!=0){
+			ResultSet resultSet = stmt.executeQuery(sql);
+			
+			if(resultSet.next()){
 				isValidUser= true;
 			}
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -3,6 +3,7 @@ package com.clothingcloset.impl;
 import org.springframework.stereotype.Component;
 
 import com.clothingcloset.api.Login;
+import com.clothingcloset.handlers.PBLStaffLoginHandler;
 import com.clothingcloset.handlers.PersonHandler;
 import com.clothingcloset.handlers.UserLoginHandler;
 import com.clothingcloset.models.PBLStaff;
@@ -15,6 +16,7 @@ public class LoginImpl implements Login {
 	// Declarations
 	PersonHandler personHandler = new PersonHandler();
 	UserLoginHandler userLoginHandler = new UserLoginHandler();
+	PBLStaffLoginHandler pblStaffLoginHandler = new PBLStaffLoginHandler();
 	
 
 	@Override
@@ -30,15 +32,11 @@ public class LoginImpl implements Login {
 
 	@Override
 	public boolean validatePBLStaff(PBLStaff pblStaff) {
-		// TODO Auto-generated method stub
+		boolean isValidPBLStaffMember = pblStaffLoginHandler.validateStaffLogin(pblStaff);
 		return false;
 	}
 
-	@Override
-	public void insertUserLoginDetails(UserLogin userLogin) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public void insertPBLStaffLoginDetails(PBLStaff pblStaff) {

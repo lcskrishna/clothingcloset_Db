@@ -16,8 +16,6 @@ public interface Login {
 
 	public boolean validatePBLStaff(PBLStaff pblStaff);
 	
-	public void insertUserLoginDetails(UserLogin userLogin);
-	
 	public void insertPBLStaffLoginDetails(PBLStaff pblStaff);
 
 }

@@ -4,6 +4,7 @@
 package com.clothingcloset.handlers;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -54,7 +55,7 @@ public class PBLStaffLoginHandler {
 		}
 	}
 
-	public boolean validateUserLogin(PBLStaff pblStaff) {
+	public boolean validateStaffLogin(PBLStaff pblStaff) {
 
 		boolean isValidMember = false;
 		
@@ -66,9 +67,9 @@ public class PBLStaffLoginHandler {
 			+"AND PASSWORD="+pblStaff.getPassword();
 
 			System.out.println("SQL Query is : " + sql);
-			int resultSet = stmt.executeUpdate(sql);
-			if(resultSet!=0){
-				isValidMember= true;
+			ResultSet resultSet = stmt.executeQuery(sql);
+			if(resultSet.next()){
+				isValidMember = true;
 			}
 			
 
