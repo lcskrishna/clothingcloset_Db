@@ -41,6 +41,28 @@
         <td><form:input path="pincode" /></td>
     </tr>
     <tr>
+        <td><form:label path="email">Email</form:label></td>
+        <td><form:input path="email" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="password">Password</form:label></td>
+        <td><form:input path="password" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="subscription">Subscription (y/n)</form:label></td>
+        <td><form:input path="subscription" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="subscriptionType">Subscription Type</form:label></td>
+        <td><form:input path="subscriptionType" /></td>
+    </tr>
+    
+    
+    <tr>
+        <td><form:label path="role">Role</form:label></td>
+        <td><form:input path="role" /></td>
+    </tr>
+    <tr>
         <td colspan="2">
             <input type="submit" value="Submit"/>
         </td>

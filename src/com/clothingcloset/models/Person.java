@@ -1,5 +1,7 @@
 package com.clothingcloset.models;
 
+import java.util.Date;
+
 public class Person {
 
 	private Integer id;
@@ -14,8 +16,17 @@ public class Person {
 	private String email;
 	private String password;
 	private String subscription;
+	private String subscriptionType;
+	
 	private String role;
 	
+	
+	public String getSubscriptionType() {
+		return subscriptionType;
+	}
+	public void setSubscriptionType(String subscriptionType) {
+		this.subscriptionType = subscriptionType;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -95,4 +106,5 @@ public class Person {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+	
 }
