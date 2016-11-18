@@ -6,7 +6,7 @@
 <body>
 
 <h2>PBL Staff Login</h2>
-<form:form method="POST" action="/ClothingCloset/login/pblStaffLogin">
+<form:form method="POST" action="/ClothingCloset/login/pblStaffLoginPage">
    <table>
     <tr>
         <td><form:label path="email">Email ID: </form:label></td>

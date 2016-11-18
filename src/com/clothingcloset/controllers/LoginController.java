@@ -1,11 +1,9 @@
-/**
- * 
- */
+
 package com.clothingcloset.controllers;
 
 /**
  * @author Chaitanya Sri Krishna Lolla.
- *
+ *This class is responsible for handling the Rest calls from Front end.
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +48,16 @@ public class LoginController {
 		
 	}
 	
+	// Login Implementation.
+	
+	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+	   public String login() {
+		   return "loginPage";
+	   }
+	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
 	   public ModelAndView userLogin() {
+		
 	      return new ModelAndView("userLoginPage", "command", new UserLogin());
 	   }
 	
@@ -73,7 +79,7 @@ public class LoginController {
 		return new ModelAndView("pblStaffLoginPage","command", new PBLStaff());
 	}
 	
-	@RequestMapping(value="/userLoginPage",method = RequestMethod.POST)
+	@RequestMapping(value="/pblStaffLoginPage",method = RequestMethod.POST)
 	public String validatePBLStaffMember(@ModelAttribute("SpringWeb") PBLStaff pblStaff){
 		boolean isValidUser = login.validatePBLStaff(pblStaff);
 		if(isValidUser){

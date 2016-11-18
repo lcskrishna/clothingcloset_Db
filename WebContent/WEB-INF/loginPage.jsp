@@ -5,17 +5,16 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<title>Login</title>
 </head>
 <body>
-<h1> LOGIN SUCCESSFUL</h1>
-			<div class="central">
+	<div class="central">
 		<table width=100% height=100% border="2">
 
 			<tr>
 				<form:form method="GET"
-					action="/ClothingCloset/donate/donate">
+					action="/ClothingCloset/login/userLogin">
 					<td width=35% valign="middle" align="center">
 						<h3>Click here for the User to login:</h3> <br> <br> 
 					<input type="image" src="user.jpg" width=50 height=50 />
@@ -34,7 +33,5 @@
 			</tr>
 		</table>
 	</div>
-		
-		
 </body>
 </html>

@@ -1,12 +1,13 @@
 package com.clothingcloset.testclient;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.clothingcloset.handlers.ItemServiceHandler;
 import com.clothingcloset.impl.DonationServiceImpl;
 import com.clothingcloset.impl.LoginImpl;
 import com.clothingcloset.models.Donation;
+import com.clothingcloset.models.Item;
 import com.clothingcloset.models.Person;
 import com.clothingcloset.models.UserLogin;
 
@@ -15,10 +16,10 @@ public class TestClient {
 	public static void main(String[] args) {
 		
 		TestClient testClient = new TestClient();
-/*		boolean isUserRegistered= testClient.registerPerson();
+		boolean isUserRegistered= testClient.registerPerson();
 		if(isUserRegistered){
 			System.out.println("USER IS REGISTERED SUCCESSFULLY");
-		}*/
+		}
 		
 //		boolean isValidUser = testClient.validateUser();
 //		if(isValidUser){
@@ -34,7 +35,7 @@ public class TestClient {
 //			System.out.println("ITEM NOT DONATED PLEASE RETRY.");
 //		}
 		
-		testClient.displayItemsForChecking();
+		//testClient.displayItemsForChecking();
 		
 	}
 	
@@ -44,18 +45,20 @@ public class TestClient {
 		boolean isUserRegistered= false;
 		
 		Person person = new Person();
-		person.setFirstName("Chaitanya Sri Krishna");
-		person.setLastName("Lolla");
+		person.setFirstName("Vijay");
+		person.setLastName("Rawlani");
 		person.setGender("Male");
 		person.setMobileNumber("9803187958");
 		person.setStreet("UTD");
 		person.setCity("Charlotte");
 		person.setState("NC");
 		person.setPincode(28262);
-		person.setEmail("lollachaitanya@yahoo.com");
+		person.setEmail("vijay@yahoo.com");
 		person.setSubscription("Y");
-		person.setPassword("chaitanya");
+		person.setPassword("vijay");
 		person.setRole("Alumni");
+		person.setSubscriptionType("Weekly");
+		
 		
 		isUserRegistered = login.registerPerson(person);
 		
@@ -100,5 +103,14 @@ public class TestClient {
 			System.out.println(donation.toString());
 		}
 		
+	}
+	
+	public void displayItemsBasedOnCategory(){
+		ItemServiceHandler itemServiceHandler = new ItemServiceHandler();
+		List<Item> items = itemServiceHandler.retrieveAllItemsBasedOnCategory("T-Shirts");
+		
+		for (Item item: items){
+			System.out.println(item.toString());
+		}
 	}
 }

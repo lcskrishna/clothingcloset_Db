@@ -66,10 +66,6 @@ public class PersonHandler {
 				isUserRegistered = false;
 			}
 			
-			
-		
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
