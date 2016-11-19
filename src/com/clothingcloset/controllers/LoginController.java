@@ -81,11 +81,11 @@ public class LoginController {
 	
 	@RequestMapping(value="/pblStaffLoginPage",method = RequestMethod.POST)
 	public String validatePBLStaffMember(@ModelAttribute("SpringWeb") PBLStaff pblStaff){
-		boolean isValidUser = login.validatePBLStaff(pblStaff);
-		if(isValidUser){
-			System.out.println("Valid User");
+		String pblPosition = login.validatePBLStaff(pblStaff);
+		if(pblPosition.equalsIgnoreCase("ADMIN")){
+			System.out.println("Admin");
 		}else{
-			System.out.println("In valid User");
+			System.out.println("Staff Member");
 		}
 		
 		return "decision";

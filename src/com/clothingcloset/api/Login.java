@@ -14,7 +14,7 @@ public interface Login {
 
 	public boolean validateUser(UserLogin userLogin);
 
-	public boolean validatePBLStaff(PBLStaff pblStaff);
+	public String validatePBLStaff(PBLStaff pblStaff);
 	
 	public void insertPBLStaffLoginDetails(PBLStaff pblStaff);
 

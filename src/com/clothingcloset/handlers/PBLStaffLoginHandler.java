@@ -55,23 +55,23 @@ public class PBLStaffLoginHandler {
 		}
 	}
 
-	public boolean validateStaffLogin(PBLStaff pblStaff) {
+	public String validateStaffLogin(PBLStaff pblStaff) {
 
-		boolean isValidMember = false;
+		String pblPosition= "";
 		
 		try {
 			conn = (Connection) connectionUtil.connectToDatabase();
 			stmt = conn.createStatement();
 
-			String sql = "SELECT * FROM PBLSTAFF_TABLE WHERE EMAIL ="+pblStaff.getEmail()
-			+"AND PASSWORD="+pblStaff.getPassword();
+			String sql = "SELECT * FROM PBLSTAFF_TABLE WHERE EMAIL ='"+pblStaff.getEmail()
+			+"'AND PASSWORD='"+pblStaff.getPassword()+"';";
 
 			System.out.println("SQL Query is : " + sql);
 			ResultSet resultSet = stmt.executeQuery(sql);
-			if(resultSet.next()){
-				isValidMember = true;
-			}
 			
+			if(resultSet.next()){
+			  pblPosition = (String) resultSet.getString("PBLPOSITION");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,7 +92,7 @@ public class PBLStaffLoginHandler {
 
 		
 
-		return isValidMember;
+		return pblPosition;
 	}
 
 

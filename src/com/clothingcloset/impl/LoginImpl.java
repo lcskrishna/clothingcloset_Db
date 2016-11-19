@@ -1,5 +1,7 @@
 package com.clothingcloset.impl;
 
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Component;
 
 import com.clothingcloset.api.Login;
@@ -31,16 +33,20 @@ public class LoginImpl implements Login {
 	}
 
 	@Override
-	public boolean validatePBLStaff(PBLStaff pblStaff) {
-		boolean isValidPBLStaffMember = pblStaffLoginHandler.validateStaffLogin(pblStaff);
-		return false;
+	public String validatePBLStaff(PBLStaff pblStaff) {
+		return pblStaffLoginHandler.validateStaffLogin(pblStaff);
+		
 	}
 
 
 
 	@Override
-	public void insertPBLStaffLoginDetails(PBLStaff pblStaff) {
-		// TODO Auto-generated method stub
+	public void insertPBLStaffLoginDetails(PBLStaff pblStaff)  {
+		try {
+			pblStaffLoginHandler.insertPBLStaffLoginDetails(pblStaff);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
