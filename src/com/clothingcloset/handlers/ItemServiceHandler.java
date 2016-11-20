@@ -41,6 +41,7 @@ public class ItemServiceHandler {
 			}
 			
 			String sql1 = "SELECT * FROM ITEM_TABLE WHERE CATEGORY_ID = "+id+";";
+			System.out.println(sql1);
 			ResultSet resultSet_item = (ResultSet) stmt.executeQuery(sql1);
 			while(resultSet_item.next()){
 				Item item = setItemDetails(resultSet_item);

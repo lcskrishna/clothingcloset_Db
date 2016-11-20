@@ -17,5 +17,7 @@ public interface Login {
 	public String validatePBLStaff(PBLStaff pblStaff);
 	
 	public void insertPBLStaffLoginDetails(PBLStaff pblStaff);
+	
+	public void retrieveStaffMembers();
 
 }

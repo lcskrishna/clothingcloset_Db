@@ -26,10 +26,10 @@ public class ItemServiceController {
 	
 	@RequestMapping(value = "/items", method = RequestMethod.GET)
 	   public ModelAndView person() {
-	      return new ModelAndView("items", "command", new Item());
+	      return new ModelAndView("home_categories", "command", new Item());
 	   }
 	
-	@RequestMapping(value= "/displayAllItems",method=RequestMethod.POST)
+	@RequestMapping(value= "/displayAllItems",method=RequestMethod.GET)
 	public String registerPerson(@ModelAttribute("SpringWeb")Item item, 
 			   ModelMap model){
 		
@@ -39,7 +39,8 @@ public class ItemServiceController {
 			System.out.println(i.toString());
 		}
 		
-		return "items";
+		model.addAttribute("lists",items);	
+		return "inside_categories";
 		
 	}
 	

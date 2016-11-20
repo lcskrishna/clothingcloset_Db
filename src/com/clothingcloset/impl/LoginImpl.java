@@ -50,6 +50,12 @@ public class LoginImpl implements Login {
 		
 	}
 
+	@Override
+	public void retrieveStaffMembers() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }
