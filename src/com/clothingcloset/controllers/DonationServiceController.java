@@ -24,15 +24,15 @@ public class DonationServiceController {
 	@Autowired
 	DonationService donationService;
 	
-	@RequestMapping(value = "/donate", method = RequestMethod.GET)
+	@RequestMapping(value = "/donation", method = RequestMethod.GET)
 	   public ModelAndView donate() {
-	      return new ModelAndView("donation", "command", new Donation());
+	      return new ModelAndView("donation_form", "command", new Donation());
 	   }
 	
 	@RequestMapping(value= "/donateItem",method=RequestMethod.POST)
 	public String registerPerson(@ModelAttribute("SpringWeb")Donation donation, 
 			   ModelMap model){
-		
+		donation.setChecked(0);
 		boolean isItemsDonated= donationService.donateItems(donation);
 		
 		if(isItemsDonated){

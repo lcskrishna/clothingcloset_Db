@@ -45,16 +45,7 @@
 	</c:if>
 	 --%>
 	 
-	 <table border = 1px align="center">
-  <c:forEach items="${lists}" var="listValue">
-    <tr>
-      <td><c:out value="${listValue.itemName}" /></td>
-      <td><c:out value="${listValue.price}" /></td>
-      <td><c:out value="${listValue.color}" /></td>
-      <td><c:out value="${listValue.itemCondition}" /></td>
-    </tr>
-  </c:forEach>
-</table>
+	
 	 
 	 
 	<br>
@@ -64,11 +55,33 @@
 	<br>
 	<section class="form-style-5"> 
 
-	<form action="">
-		<input type="submit" value="Proceed to Payment">
+	<%-- <form:form action=""> --%>
+		
+<table border = 1px align="center">
+  <c:forEach items="${lists}" var="listValue">
+    <tr>
+    <form:form method="post" action = "" commandName="user">
+    
+     <%--  <form:checkbox  path="item" value=" <c:out value="${listValue.itemId}" />"/> --%>
+     <%-- <td> <form:checkbox path="item" value = "${listValue.itemId}" /> --%>
+   <%--   <td><c:out value="${listValue.itemId}" /> </td>  --%>
+      <td><c:out value="${listValue.itemName}" /></td>
+      <td><c:out value="${listValue.price}" /></td>
+      <td><c:out value="${listValue.color}" /></td>
+      <td><c:out value="${listValue.itemCondition}" /></td>
+    </tr>
+    
+    <input type="submit" value="Proceed to Payment">
+		&nbsp;&nbsp;&nbsp;&nbsp; <span>Total Amount : $ </span>
+	</form:form>
+    
+  </c:forEach>
+</table>
+
+<%-- <input type="submit" value="Proceed to Payment">
 		&nbsp;&nbsp;&nbsp;&nbsp; <span>Total Amount : $ </span>
 
-	</form>
+	</form:form> --%>
 	</section>
 </body>
 </html>

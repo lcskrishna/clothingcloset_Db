@@ -59,7 +59,7 @@ background-color:#1abc9c;
         
 <ul>
   <li><a href="/ClothingCloset/itemdisplay/items">Home</a></li>
-  <li><a href="#">Register</a></li>
+  <li><a href="/ClothingCloset/login/person">Register</a></li>
   <li><a href="/ClothingCloset/login/loginPage">Login</a></li>
   
 </ul>

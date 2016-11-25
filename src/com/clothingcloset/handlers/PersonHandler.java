@@ -51,13 +51,14 @@ public class PersonHandler {
 				System.out.println("SQL Query is : "+sql2);
 				stmt.executeUpdate(sql2);
 				Date date = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				String dateStr = dateFormat.format(date);
 				if(person.getSubscription().equalsIgnoreCase("y")) {
 					//person.setSubscriptionDate(new Date());
 					
 					String sql3 = "INSERT INTO NEWSLETTER (EMAIL, SUBSCRIPTION_DATE, SUBSCRIPTION_TYPE) VALUES ('"
 						+person.getEmail()+"','"+dateStr+"','"+person.getSubscriptionType()+"');";
+					System.out.println(sql3);
 					stmt.executeUpdate(sql3);
 					}
 				

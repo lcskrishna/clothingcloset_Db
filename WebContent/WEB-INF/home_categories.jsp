@@ -82,7 +82,7 @@
 						src="http://www.lilybluefashion.com/wp-content/uploads/2016/02/formal-shirts-1.jpg"
 						alt="no image" width="50" height="50" /></td>
 
-					<td><a href='displayAllItems?categoryName=FormalShirts'><span>Formal Shirts</span></a></td>
+					<td><a href='displayAllItems?categoryName=Formal Shirts'><span>Formal Shirts</span></a></td>
 				</tr>
 
 				<tr>

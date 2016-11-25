@@ -5,33 +5,41 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
 <title>Login</title>
 </head>
 <body>
-	<div class="central">
-		<table width=100% height=100% border="2">
+
+	<%@include file="header.jsp"%>
+	<!-- <div class="central"> -->
+		<table width=100% height=100% align="center">
 
 			<tr>
-				<form:form method="GET"
-					action="/ClothingCloset/login/userLogin">
+				<%-- <form:form method="GET" action="/ClothingCloset/login/userLogin"> --%>
 					<td width=35% valign="middle" align="center">
 						<h3>Click here for the User to login:</h3> <br> <br> 
-					<input type="image" src="user.jpg" width=50 height=50 />
+						<a href="/ClothingCloset/login/userLogin">
+							<img src="user.jpg" />
+						</a>
+					<!-- <input type="image" src="user.jpg" width=50 height=50 /> -->
 					</td>
 
-				</form:form>
-					<form:form method="GET"
-					action="/ClothingCloset/login/pblStaffLogin">
+	<%-- 			</form:form> --%>
+	
+	
+					<%-- <form:form method="GET"
+					action="/ClothingCloset/login/pblStaffLogin"> --%>
 				<td width=35% valign="middle" align="center">
-					<h3>Click Here for Staff or Admin to login:</h3> <br> <br>
-					 
-						
-					<input type="image" src="images/admin.png" width=50 height=50 />
+					<h3>Click Here for Staff or Admin to login:</h3> 
+					 <a href="/ClothingCloset/login/pblStaffLogin">
+							<img src="user.jpg" />
+						</a>
+						<br> <br>
+					<!-- <input type="image" src="images/admin.png" width=50 height=50 /> -->
 				</td>
-				</form:form>
+				<%-- </form:form> --%>
 			</tr>
 		</table>
-	</div>
+<!-- 	</div> -->
 </body>
 </html>

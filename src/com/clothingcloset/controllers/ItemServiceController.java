@@ -38,7 +38,7 @@ public class ItemServiceController {
 		for(Item i:items){
 			System.out.println(i.toString());
 		}
-		
+		model.addAttribute("item", new Item()); 
 		model.addAttribute("lists",items);	
 		return "inside_categories";
 		

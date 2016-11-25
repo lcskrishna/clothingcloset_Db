@@ -1,5 +1,7 @@
 package com.clothingcloset.api;
 
+import java.util.List;
+
 import com.clothingcloset.models.PBLStaff;
 import com.clothingcloset.models.Person;
 import com.clothingcloset.models.UserLogin;
@@ -18,6 +20,6 @@ public interface Login {
 	
 	public void insertPBLStaffLoginDetails(PBLStaff pblStaff);
 	
-	public void retrieveStaffMembers();
+	public List<PBLStaff> retrieveStaffMembers();
 
 }

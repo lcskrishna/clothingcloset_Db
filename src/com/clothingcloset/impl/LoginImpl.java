@@ -1,6 +1,7 @@
 package com.clothingcloset.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import com.clothingcloset.handlers.UserLoginHandler;
 import com.clothingcloset.models.PBLStaff;
 import com.clothingcloset.models.Person;
 import com.clothingcloset.models.UserLogin;
+
 
 @Component
 public class LoginImpl implements Login {
@@ -51,8 +53,8 @@ public class LoginImpl implements Login {
 	}
 
 	@Override
-	public void retrieveStaffMembers() {
-		// TODO Auto-generated method stub
+	public List<PBLStaff> retrieveStaffMembers() {
+		return pblStaffLoginHandler.retrieveAllStaffMembers();
 		
 	}
 
